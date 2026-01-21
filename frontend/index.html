@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Video Learning Tool - AI-Powered Learning</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                Smart Video Learning Tool
+            </h1>
+            <p class="tagline">Transform YouTube Videos into Complete Learning Packages with AI</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Input Section -->
+            <section class="input-section" id="inputSection">
+                <div class="card">
+                    <h2 class="section-title">
+                        <i class="fas fa-link"></i>
+                        Enter YouTube Video URL
+                    </h2>
+                    <p class="section-description">
+                        Paste any educational YouTube video URL below and get AI-generated summary, key points, and quiz questions!
+                    </p>
+                    
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="youtubeUrl" 
+                            class="url-input"
+                            placeholder="https://www.youtube.com/watch?v=..."
+                        >
+                        <button id="processBtn" class="btn btn-primary">
+                            <i class="fas fa-magic"></i>
+                            Generate Learning Package
+                        </button>
+                    </div>
+                    
+                    <div class="example-section">
+                        <p class="example-label">Example URLs:</p>
+                        <ul class="example-list">
+                            <li>https://www.youtube.com/watch?v=dQw4w9WgXcQ</li>
+                            <li>https://youtu.be/dQw4w9WgXcQ</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading Section -->
+            <section class="loading-section hidden" id="loadingSection">
+                <div class="card">
+                    <div class="loading-spinner">
+                        <i class="fas fa-cog fa-spin"></i>
+                    </div>
+                    <h3 class="loading-text">Processing Your Video...</h3>
+                    <p class="loading-description" id="loadingStatus">Extracting transcript...</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressBar"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section class="error-section hidden" id="errorSection">
+                <div class="card error-card">
+                    <i class="fas fa-exclamation-triangle error-icon"></i>
+                    <h3 class="error-title">Oops! Something went wrong</h3>
+                    <p class="error-message" id="errorMessage"></p>
+                    <button class="btn btn-secondary" onclick="resetApp()">
+                        <i class="fas fa-redo"></i>
+                        Try Again
+                    </button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section hidden" id="resultsSection">
+                
+                <!-- Summary Card -->
+                <div class="card result-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-file-alt"></i>
+                        AI-Generated Summary
+                    </h2>
+                    <div class="summary-content" id="summaryContent">
+                        <!-- Summary will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Key Points Card -->
+                <div class="card result-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-lightbulb"></i>
+                        Key Learning Points
+                    </h2>
+                    <div class="keypoints-content" id="keypointsContent">
+                        <!-- Key points will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Quiz Card -->
+                <div class="card result-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-question-circle"></i>
+                        Interactive Quiz (10 Questions)
+                    </h2>
+                    <p class="quiz-description">Test your understanding of the video content!</p>
+                    
+                    <div class="quiz-content" id="quizContent">
+                        <!-- Quiz questions will be inserted here -->
+                    </div>
+
+                    <div class="quiz-actions">
+                        <button class="btn btn-primary" id="submitQuizBtn">
+                            <i class="fas fa-check"></i>
+                            Submit Quiz
+                        </button>
+                        <button class="btn btn-secondary" onclick="resetApp()">
+                            <i class="fas fa-redo"></i>
+                            Process Another Video
+                        </button>
+                    </div>
+
+                    <!-- Quiz Results -->
+                    <div class="quiz-results hidden" id="quizResults">
+                        <div class="score-display">
+                            <h3>Your Score</h3>
+                            <div class="score-circle">
+                                <span class="score-value" id="scoreValue">0</span>
+                                <span class="score-total">/ 10</span>
+                            </div>
+                            <p class="score-message" id="scoreMessage"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Smart Video Learning Tool. Powered by AI.</p>
+            <p class="footer-note">Transform your learning experience with AI-powered insights.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
